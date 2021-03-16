@@ -19,7 +19,6 @@ export default class RPS {
     }
 
     moveOutcome(){
-        console.log("outcome", this.playerChoice, this.computerChoice)
         if (this.playerChoice === this.computerChoice){
             this.ties += 1;
             this.updateGameStats();

@@ -22,7 +22,4 @@ window.addEventListener("DOMContentLoaded", () => {
             game.resetStats();
     
     });
-
-
-
 });
