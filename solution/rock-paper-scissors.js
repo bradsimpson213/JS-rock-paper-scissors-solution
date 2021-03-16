@@ -1,14 +1,27 @@
 // YOUR CODE HERE
 import RPS from './RPS.js';
 
-
-
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", () => {
 
     const game = new RPS();
 
-    game.computerMove()
-    console.log(game.computerChoice)
+// Event listener on the button container, will use bubbling and event.target.id
+// to determine which button is clicked
+    document
+        .querySelector(".button-container")
+        .addEventListener("click", (event) => {
+            const choice = event.target.id.split('-')[0];
+            game.playerMove(choice);
+        
+    });
+
+// Event listenor on the game controls container to call resetStats 
+    document
+        .querySelector('.game-controls')
+        .addEventListener('click', () => {
+            game.resetStats();
+    
+    });
 
 
 
