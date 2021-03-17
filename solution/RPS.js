@@ -38,18 +38,18 @@ export default class RPS {
     computerMove(){
         const randomChoice = Math.floor(Math.random() * this.choices.length)
         this.computerChoice = this.choices[randomChoice];
-        const computerImage = document.getElementById("computer-image")
-        computerImage.src = `./images/${this.computerChoice}.png`
+        const computerImage = document.getElementById("computer-image");
+        computerImage.src = `./images/${this.computerChoice}.png`;
         const computerChoiceName = document.getElementById("computer-choice");
         computerChoiceName.innerHTML = this.computerChoice.charAt(0).toUpperCase() + this.computerChoice.slice(1);
-        this.moveOutcome()
+        this.moveOutcome();
     };
 
     playerMove(choice){
         this.playerChoice = choice;
-        const playerImage = document.getElementById("player-image")
-        playerImage.src = `./images/${this.playerChoice}.png`
-        this.computerMove()
+        const playerImage = document.getElementById("player-image");
+        playerImage.src = `./images/${this.playerChoice}.png`;
+        this.computerMove();
     };
 
     resetStats(){
@@ -58,8 +58,7 @@ export default class RPS {
         this.losses = 0;
         this.playerChoice = '';
         this.computerChoice = '';
-        this.updateGameStats()
-        console.log("All stats reset");
+        this.updateGameStats();
     };
 
 };
