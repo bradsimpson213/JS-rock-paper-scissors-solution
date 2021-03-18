@@ -7,6 +7,7 @@ export default class RPS {
         this.choices= ['rock', 'paper', 'scissors', 'lizard', 'spock'];
         this.playerChoice = '';
         this.computerChoice = '';
+        this.previousPlayerMoves = []
     }
 
     updateGameStats(){
@@ -48,7 +49,7 @@ export default class RPS {
         const computerImage = document.getElementById("computer-image")
         computerImage.classList.remove("fade-out");
         computerImage.classList.add("fade-in")
-        computerImage.src = `./images/${this.computerChoice}.png`;
+        computerImage.src = `./assets/${this.computerChoice}.png`;
         const computerChoiceName = document.getElementById("computer-choice");
         computerChoiceName.innerHTML = this.computerChoice.charAt(0).toUpperCase() + this.computerChoice.slice(1);
         this.moveOutcome()
@@ -58,7 +59,7 @@ export default class RPS {
         this.playerChoice = choice;
         const playerImage = document.getElementById("player-image");
         playerImage.classList.remove("fade-out");
-        playerImage.src = `./images/${this.playerChoice}.png`;
+        playerImage.src = `./assets/${this.playerChoice}.png`;
         playerImage.classList.add("fade-in");
         this.computerMove()
         // const wait = setTimeout( () => this.computerMove(), 2000);
@@ -72,5 +73,9 @@ export default class RPS {
         this.computerChoice = '';
         this.updateGameStats();
     };
+
+    tapInSmarterCPU(){
+        
+    }
 
 };
