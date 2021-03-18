@@ -10,17 +10,17 @@ window.addEventListener("DOMContentLoaded", () => {
     document
         .querySelector(".button-container")
         .addEventListener("click", (event) => {
-
+// starts the fade out animation on images for player and computer
             const playerImage = document.getElementById('player-image');
-            playerImage.classList.remove('fade-in')
-            playerImage.classList.add('fade-out')
-            const computerImage = document.getElementById('computer-image')
-            computerImage.classList.remove('fade-in')
-            computerImage.classList.add('fade-out')
+            const computerImage = document.getElementById('computer-image');
+            playerImage.classList.add('fade-out');
+            computerImage.classList.add('fade-out');
+            playerImage.classList.remove('fade-in');        
+            computerImage.classList.remove('fade-in');
 
             const choice = event.target.id.split('-')[0];
 
-            const wait = setTimeout(() =>  game.playerMove(choice), 2000)
+            const wait = setTimeout(() =>  game.playerMove(choice), 2000);
             // game.playerMove(choice);
         
     });

@@ -46,8 +46,9 @@ export default class RPS {
         const randomChoice = Math.floor(Math.random() * this.choices.length)
         this.computerChoice = this.choices[randomChoice];
         const computerImage = document.getElementById("computer-image")
-        computerImage.src = `./images/${this.computerChoice}.png`
+        computerImage.src = `./images/${this.computerChoice}.png`;
         computerImage.classList.add("fade-in")
+        computerImage.classList.remove("fade-out");
         const computerChoiceName = document.getElementById("computer-choice");
         computerChoiceName.innerHTML = this.computerChoice.charAt(0).toUpperCase() + this.computerChoice.slice(1);
         this.moveOutcome()
@@ -58,7 +59,8 @@ export default class RPS {
         const playerImage = document.getElementById("player-image");
         playerImage.src = `./images/${this.playerChoice}.png`;
         playerImage.classList.add("fade-in");
-        this.computerMove();
+        playerImage.classList.remove("fade-out");
+        const wait = setTimeout( () => this.computerMove(), 2000);
     };
 
     resetStats(){
