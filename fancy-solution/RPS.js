@@ -24,16 +24,16 @@ export default class RPS {
             this.updateGameStats();
             return;
         };
-        if ((this.playerChoice === "rock" && this.computerChoice === "scissors") ||
-            (this.playerChoice === "rock" && this.computerChoice === "lizard") ||
-            (this.playerChoice === "scissors" && this.computerChoice === "paper") ||
-            (this.playerChoice === "scissors" && this.computerChoice === "lizard") ||
-            (this.playerChoice === "paper" && this.computerChoice === "rock") ||
-            (this.playerChoice === "paper" && this.computerChoice === "spock") ||
-            (this.playerChoice === "spock" && this.computerChoice === "scissors") ||
-            (this.playerChoice === "spock" && this.computerChoice ==="rock") ||
-            (this.playerChoice === "lizard" && this.computerChoice === "spock") || 
-            (this.playerChoice === "lizard" && this.computerChoice === "paper")) {
+        if ((this.playerChoice === "rock" && 
+                (this.computerChoice === "scissors" || this.computerChoice === "lizard")) ||
+            (this.playerChoice === "scissors" && 
+                (this.computerChoice === "paper" || this.computerChoice === "lizard")) ||
+            (this.playerChoice === "paper" && 
+                (this.computerChoice === "rock" || this.computerChoice === "spock")) ||
+            (this.playerChoice === "spock" && 
+                (this.computerChoice === "scissors" || this.computerChoice ==="rock")) ||
+            (this.playerChoice === "lizard" && 
+                (this.computerChoice === "spock" || this.computerChoice === "paper"))) {
                 this.wins += 1;
                 this.updateGameStats();
         } else {
@@ -46,9 +46,9 @@ export default class RPS {
         const randomChoice = Math.floor(Math.random() * this.choices.length)
         this.computerChoice = this.choices[randomChoice];
         const computerImage = document.getElementById("computer-image")
-        computerImage.src = `./images/${this.computerChoice}.png`;
-        computerImage.classList.add("fade-in")
         computerImage.classList.remove("fade-out");
+        computerImage.classList.add("fade-in")
+        computerImage.src = `./images/${this.computerChoice}.png`;
         const computerChoiceName = document.getElementById("computer-choice");
         computerChoiceName.innerHTML = this.computerChoice.charAt(0).toUpperCase() + this.computerChoice.slice(1);
         this.moveOutcome()
@@ -57,10 +57,11 @@ export default class RPS {
     playerMove(choice){
         this.playerChoice = choice;
         const playerImage = document.getElementById("player-image");
+        playerImage.classList.remove("fade-out");
         playerImage.src = `./images/${this.playerChoice}.png`;
         playerImage.classList.add("fade-in");
-        playerImage.classList.remove("fade-out");
-        const wait = setTimeout( () => this.computerMove(), 2000);
+        this.computerMove()
+        // const wait = setTimeout( () => this.computerMove(), 2000);
     };
 
     resetStats(){
