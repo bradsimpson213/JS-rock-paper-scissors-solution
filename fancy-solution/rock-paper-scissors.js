@@ -27,7 +27,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 // Event listenor on the game controls container to call resetStats 
     document
-        .querySelector('.game-controls')
+        .getElementById('reset-button')
         .addEventListener('click', () => {
             game.resetStats();
     

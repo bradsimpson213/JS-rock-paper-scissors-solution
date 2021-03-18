@@ -61,6 +61,8 @@ export default class RPS {
         playerImage.classList.remove("fade-out");
         playerImage.src = `./assets/${this.playerChoice}.png`;
         playerImage.classList.add("fade-in");
+        const playerChoiceName = document.getElementById("player-choice");
+        playerChoiceName.innerHTML = this.playerChoice.charAt(0).toUpperCase() + this.playerChoice.slice(1);
         this.computerMove()
         // const wait = setTimeout( () => this.computerMove(), 2000);
     };

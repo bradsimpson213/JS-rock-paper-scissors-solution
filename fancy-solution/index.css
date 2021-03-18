@@ -27,11 +27,11 @@ body {
     width: 300px;
     display: flex;
     border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 15px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 12px;
+    padding: 15px;
     margin: 0 0 20px 0;
     background-color: whitesmoke;
 }
@@ -60,7 +60,6 @@ body {
     background-color:#E01E5A;
 }
 
-
 .player {
     height: 50vh;
     width: 45vw;
@@ -85,7 +84,7 @@ body {
 .player-image-name, .computer-image-name {
     width: 225px;
     border: 2px solid black;
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 10px;
     margin: 15px 0 15px 0;
     text-align: center;
@@ -96,20 +95,24 @@ body {
 .button-container {
     display: flex;
     flex-direction: row;
-    width: 450px;
+    width: 650px;
     border: 2px solid black;
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 10px;
-    margin: 15px 0 15px 0;
+    margin: 15px 0 15px 100px;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     background-color:whitesmoke;
 }
 
 .button {
     background-color: lightgray;
-    width: 150px;
-    height: 60px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    width: 200px;
+    height: 70px;
+    margin: 0 10px 0 10px;
 }
 
 .game-controls {
@@ -117,10 +120,14 @@ body {
     width: 90vw;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     border: 2px solid black;
     background-color: #2EB67D;
+}
+
+#reset-button {
+    margin-right: 50px;
 }
 
  /* image fade in and out animations */
