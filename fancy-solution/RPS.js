@@ -7,7 +7,7 @@ export default class RPS {
         this.choices= ['rock', 'paper', 'scissors', 'lizard', 'spock'];
         this.playerChoice = '';
         this.computerChoice = '';
-        this.previousPlayerMoves = []
+        this.previousPlayerMoves = window.localStorage.getItem("moves") ? window.localStorage.getItem("moves") : { rock: 0, paper: 0, scissors: 0, lizard: 0, spock: 0 };
     }
 
     updateGameStats(){
@@ -51,12 +51,16 @@ export default class RPS {
         computerImage.classList.add("fade-in")
         computerImage.src = `./assets/${this.computerChoice}.png`;
         const computerChoiceName = document.getElementById("computer-choice");
+        // format the move into capital case
         computerChoiceName.innerHTML = this.computerChoice.charAt(0).toUpperCase() + this.computerChoice.slice(1);
         this.moveOutcome()
     };
 
     playerMove(choice){
         this.playerChoice = choice;
+        this.previousPlayerMoves[this.playerChoice] ++;
+        window.localStorage.setItem("moves", JSON.stringify(this.previousPlayerMoves))
+        console.log(this.previousPlayerMoves);
         const playerImage = document.getElementById("player-image");
         playerImage.classList.remove("fade-out");
         playerImage.src = `./assets/${this.playerChoice}.png`;
@@ -73,6 +77,7 @@ export default class RPS {
         this.losses = 0;
         this.playerChoice = '';
         this.computerChoice = '';
+        // this.previousPlayerMoves = { rock: 0, paper: 0, scissors: 0, lizard: 0, spock: 0 };
         this.updateGameStats();
     };
 
