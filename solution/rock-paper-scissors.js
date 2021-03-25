@@ -10,6 +10,7 @@ window.addEventListener("DOMContentLoaded", () => {
     document
         .querySelector(".button-container")
         .addEventListener("click", (event) => {
+            // get move from button id split on '-' and index in
             const choice = event.target.id.split('-')[0];
             game.playerMove(choice);
         

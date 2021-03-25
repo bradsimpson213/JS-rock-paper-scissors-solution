@@ -7,7 +7,9 @@ export default class RPS {
         this.choices= ['rock', 'paper', 'scissors', 'lizard', 'spock'];
         this.playerChoice = '';
         this.computerChoice = '';
-        this.previousPlayerMoves = window.localStorage.getItem("moves") ? window.localStorage.getItem("moves") : { rock: 0, paper: 0, scissors: 0, lizard: 0, spock: 0 };
+        this.previousPlayerMoves = window.localStorage.getItem("moves") ? 
+                    JSON.parse(window.localStorage.getItem("moves")) : 
+                    { rock: 0, paper: 0, scissors: 0, lizard: 0, spock: 0 };
     }
 
     updateGameStats(){

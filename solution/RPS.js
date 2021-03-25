@@ -41,6 +41,7 @@ export default class RPS {
         const computerImage = document.getElementById("computer-image");
         computerImage.src = `./images/${this.computerChoice}.png`;
         const computerChoiceName = document.getElementById("computer-choice");
+        // getting choice name to capitalcase
         computerChoiceName.innerHTML = this.computerChoice.charAt(0).toUpperCase() + this.computerChoice.slice(1);
         this.moveOutcome();
     };
