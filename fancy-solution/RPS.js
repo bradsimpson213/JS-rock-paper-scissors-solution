@@ -7,6 +7,7 @@ export default class RPS {
         this.choices= ['rock', 'paper', 'scissors', 'lizard', 'spock'];
         this.playerChoice = '';
         this.computerChoice = '';
+        // check for saved moves in local storage, if so load them, if not set default values
         this.previousPlayerMoves = window.localStorage.getItem("moves") ? 
                     JSON.parse(window.localStorage.getItem("moves")) : 
                     { rock: 0, paper: 0, scissors: 0, lizard: 0, spock: 0 };
@@ -70,6 +71,7 @@ export default class RPS {
         const playerChoiceName = document.getElementById("player-choice");
         playerChoiceName.innerHTML = this.playerChoice.charAt(0).toUpperCase() + this.playerChoice.slice(1);
         this.computerMove()
+        this.tapInSmarterCPU()
         // const wait = setTimeout( () => this.computerMove(), 2000);
     };
 
@@ -79,12 +81,20 @@ export default class RPS {
         this.losses = 0;
         this.playerChoice = '';
         this.computerChoice = '';
-        // this.previousPlayerMoves = { rock: 0, paper: 0, scissors: 0, lizard: 0, spock: 0 };
         this.updateGameStats();
     };
 
     tapInSmarterCPU(){
-        
+        let mostProbableMove = '';
+        let count = 0;
+        const moves = this.previousPlayerMoves
+        for (const key in moves) {
+            if (moves[key] >= count){
+                count = moves[key];
+                mostProbableMove = key;
+            }
+        }
+        console.log(mostProbableMove)
     }
 
 };
