@@ -46,9 +46,42 @@ export default class RPS {
         };
     };
 
+    tapInSmarterCPU(){
+        let mostProbableMove = '';
+        let count = 0;
+        const moves = this.previousPlayerMoves
+        for (const key in moves) {
+            if (moves[key] >= count){
+                count = moves[key];
+                mostProbableMove = key;
+            }
+        }
+        switch (mostProbableMove) {
+            case "rock": 
+                this.computerChoice = "paper";
+                break;
+            case "paper":
+                this.computerChoice = "lizard";
+                break;
+            case "scissors":
+                this.computerChoice = "spock";
+                break;
+            case "lizard":
+                this.computerChoice = "rock";
+                break;
+            case "spock":
+                this.computerChoice = "scissors";
+                break;
+            default:
+                this.computerChoice = "rock";
+        }
+        console.log(mostProbableMove)
+    }
+
     computerMove(){
-        const randomChoice = Math.floor(Math.random() * this.choices.length)
-        this.computerChoice = this.choices[randomChoice];
+        // const randomChoice = Math.floor(Math.random() * this.choices.length)
+        // this.computerChoice = this.choices[randomChoice];
+        this.tapInSmarterCPU();
         const computerImage = document.getElementById("computer-image")
         computerImage.classList.remove("fade-out");
         computerImage.classList.add("fade-in")
@@ -71,7 +104,6 @@ export default class RPS {
         const playerChoiceName = document.getElementById("player-choice");
         playerChoiceName.innerHTML = this.playerChoice.charAt(0).toUpperCase() + this.playerChoice.slice(1);
         this.computerMove()
-        this.tapInSmarterCPU()
         // const wait = setTimeout( () => this.computerMove(), 2000);
     };
 
@@ -84,17 +116,6 @@ export default class RPS {
         this.updateGameStats();
     };
 
-    tapInSmarterCPU(){
-        let mostProbableMove = '';
-        let count = 0;
-        const moves = this.previousPlayerMoves
-        for (const key in moves) {
-            if (moves[key] >= count){
-                count = moves[key];
-                mostProbableMove = key;
-            }
-        }
-        console.log(mostProbableMove)
-    }
+    
 
 };
