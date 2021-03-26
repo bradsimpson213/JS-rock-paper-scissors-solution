@@ -47,6 +47,8 @@ export default class RPS {
     };
 
     tapInSmarterCPU(){
+        /* this method checks the stored user moves, determines the most often 
+           played user move and plays to win against that */
         let mostProbableMove = '';
         let count = 0;
         const moves = this.previousPlayerMoves
