@@ -49,6 +49,8 @@ export default class RPS {
     tapInSmarterCPU(){
         /* this method checks the stored user moves, determines the most often 
            played user move and plays to win against that */
+        /* Idea to make even smarter CPU, save nested objects to track what is the most likely next move to be played 
+        after a given move */
         let mostProbableMove = '';
         let count = 0;
         const moves = this.previousPlayerMoves
